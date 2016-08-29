@@ -16,10 +16,14 @@ public class main {
 	public static void main(String[] args) throws FileNotFoundException{
 		boolean fromFile = false;
 		
+		int limit = 190;
+		
 		if(!fromFile){
 			Scanner in = new Scanner(new File("songs.txt"));
 			
-			while(in.hasNextLine()){
+			
+			int counter = 0;
+			while(in.hasNextLine() && counter < limit){
 				try{
 					String url = in.nextLine();
 				
@@ -33,6 +37,7 @@ public class main {
 				}catch(Exception e){
 					e.printStackTrace();
 				}
+				counter++;
 			}
 		}else{
 			Scanner in = new Scanner(new File("failed.txt"));
